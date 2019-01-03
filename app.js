@@ -7,6 +7,11 @@ var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var catalogRouter = require('./routes/catalog')
+var bookRouter = require('./routes/book')
+var bookinstanceRouter = require('./routes/bookinstance')
+var genreRouter = require('./routes/genre')
+var authorRouter = require('./routes/author')
 
 var app = express();
 
@@ -16,8 +21,6 @@ mongoose.Promise = global.Promise
 const db = mongoose.connection
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
-
-
 
 
 // view engine setup
@@ -32,6 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/catalog', catalogRouter)
+app.use('/book', bookRouter);
+app.use('/bookinstance', bookinstanceRouter);
+app.use('/genre', genreRouter);
+app.use('/author', authorRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

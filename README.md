@@ -2,7 +2,7 @@
 
 Pour lancer la base de données mongo :
 ```
-mondod --dbpath /Users/florentmoiny/perso/github/test-node-express/data/db
+mongod --dbpath /Users/florentmoiny/perso/github/test-node-express/data/db
 ```
 
 Pour populer la base de données la première fois :
